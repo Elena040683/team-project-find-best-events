@@ -1,14 +1,24 @@
-<header class="hero">
-    <div class="image__logo">
-<img srcset="./images/mobile/logo1x.png 1x, ./images/mobile/logo2x.png 2x"
-    src="./images/mobile/logo1x.png" alt="logo">
-    </div>
 
-    <div class="image__logo-tablet">
-    <img srcset="./images/desktop/logo1x.png 1x, ./images/desktop/logo2x.png 2x" src="./images/desktop/logo1x.png" alt="logo">
-    </div>
+   
+<div class="navInput">
+    <input class="eventInput" type="text" name="event" id="input-event" placeholder="Start searching" />
+    <svg class="search-icon" width=12 height=12><use href="./images/search-icon.svg#icon-Search"></use></svg>
+    <svg class="polygon-icon"><use href="./images/search-icon.svg#icon-polygon"></use></svg>
+    <input class="countryInput" type="text" name="country" id="input-country" placeholder="Choose country" />
 
 
-    <h1 class="hero__title">Find best event </br> around the world</h1>
+<!-- Контейнер для галереи -->
+<ul class="events events-container"></ul>
+
+
+<!-- Пока кнопка, потом заменить на перечень стр -->
+<button type="button" class="btn-load-more" data-action="load-more">
+
+    <span class="label">Show more</span>
+</button>
+</div>
+ 
+
+  
     
-</header>
+    
