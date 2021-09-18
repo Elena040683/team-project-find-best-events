@@ -24,8 +24,7 @@ animate();
 const refs = getRefs();
 
 document.addEventListener('DOMContentLoaded', () => {
-    let showEv = new Date()
-    paginator(showEv);
+        paginator(1);
     // resetSearch()
 });
 
