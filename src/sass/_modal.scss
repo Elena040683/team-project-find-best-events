@@ -111,6 +111,9 @@
 .modal-info__list {
   padding-left: 12px;
   padding-right: 12px;
+   @media screen and (min-width: $tablet) {
+   padding: 0;
+   }
   
 }
 .modal__button:hover,
@@ -119,10 +122,20 @@
   background-color: rgba(203, 202, 207, 0.568);
 }
 .modal__image {
-  // display: none;
-  // @media screen and (min-width: $tablet) {
-  //   display: block;
-  // }
+
+     width: 233px;
+     height: 416px;
+     display: none;
+     /* background-size: cover; */
+     object-fit: cover;
+
+     @media screen and (min-width: $tablet) {
+       display: block;
+     }
+      @media screen and (min-width: $pc) {
+       width: 360px;
+       height: 641px;
+      }
 
 }
 .modal__image--little {
@@ -194,17 +207,18 @@
 }
 .modal-render_container {
   text-align: center;
+  padding: 62px 32px;
 }
 .modal-content__item {
   margin-left: 60px;
   margin-top: 60px;
   @media screen and (min-width: $tablet) {
     margin: 0;
-  flex-basis: calc((100% - 17px * 2) / 2);
+  flex-basis: calc(100% / 2);
   }
   @media screen and (min-width: $pc) {
     margin: 0;
-    flex-basis: calc((100% - 30px * 2) / 2);
+    flex-basis: calc(100% / 2);
   }
 }
 
