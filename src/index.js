@@ -23,11 +23,25 @@ animate();
 
 const refs = getRefs();
 
-document.addEventListener('DOMContentLoaded', () => {
-        paginator(1);
-    // resetSearch()
-});
 
+  document.addEventListener('DOMContentLoaded', renderTrending);
+
+function renderTrending() {
+
+  return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=&sort=random&apikey=PLEluArGwTZQl36ty5ijCNPhmvtWXv1M`)
+    .then(response => response.json())
+    .then(data => {
+      return data._embedded.events
+    })
+    .then(data => eventsCardTpl(data))
+    .then(el => {
+      refs.container.innerHTML = ''
+      refs.container.insertAdjacentHTML('beforeend', el)
+    })
+}
+
+
+////
 // const eventsApiService = new EventsApiService();
 
 refs.input.addEventListener('input', debounce(onSearch, 700));
@@ -101,9 +115,9 @@ function paginator() {
   });
 }
 
-// function markupEvents(e) {
-//   refs.container.insertAdjacentHTML('beforeend', eventsCardTpl(e));
-// }
+function markupEvents(e) {
+  refs.container.insertAdjacentHTML('beforeend', eventsCardTpl(e));
+}
 
 function resetSearch() {
   refs.container.innerHTML = '';
@@ -168,4 +182,3 @@ function onEscKeyPress(e){
     onCloseModal()
   }
 };
-
