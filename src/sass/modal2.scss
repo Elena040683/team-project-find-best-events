@@ -8,7 +8,6 @@
   position: fixed;
   z-index: 3;
   width: 100vw;
-  // overflow-y: hidden;
   height: 100vh;
   opacity: 0;
   pointer-events: none;
@@ -19,6 +18,7 @@
 .modal.is-open {
   opacity: 1;
   pointer-events: initial;
+  transform: scale(1);
 }
 
 .modal__overlay {
@@ -33,27 +33,25 @@
 
 .modal__container {
   margin: 0;
+  margin-top: 414px;
   padding-top: 75px;
+  // padding-right: 17px;
   padding-bottom: 104px;
-  @media (min-width: $tablet) {
-    padding-top: 62px;
-    padding-bottom: 62px;
-  }
-
+  // padding-left: 12px;
   width: 272px;
   max-width: 100%;
-  // max-height: 100%;
-
-  // display: inline-table;
+  max-height: 100%;
+  // position: absolute;
+  display: inline-table;
   top: 0;
   left: 50%;
   transform: translate(-50%);
   background-color: #fff2fd;
   border-radius: 150px 0px;
   background-blend-mode: color;
-
   // margin-top: 201px;
   // margin-left: 175px;
+
 
   // width: 942px;
   // min-height: 1023px;
@@ -61,12 +59,20 @@
   // background-color: #fff2fd;
   // border-radius: 300px 0 300px 0;
 
+  // transform: scale(1);
   @media screen and (min-width: $tablet) {
+    // padding-top: 28px;
+    // padding-right: 10px;
+    // padding-bottom: 56px;
+    // padding-left: 50px;
+    margin-top: 161px;
     width: 595px;
     border-radius: 300px 0px;
   }
 
   @media screen and (min-width: $pc) {
+    margin-top: 161px;
+    // padding: 62px 32px;
     width: 930px;
     max-height: 1023px;
   }
@@ -74,9 +80,6 @@
 
 .modal.is-open .modal__container {
   transform: scale(1);
-  @media (min-width: $tablet) {
-    transform: scale(0.75);
-  }
 }
 
 .modal__button {
@@ -97,20 +100,24 @@
   outline: none;
 
   //нужно откорректиорвать путь!!!
-  background-image: url('../images/icons/close.svg');
+  background-image: url('../images/close.svg');
   width: 25px;
   height: 25px;
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
 }
+
 .modal-info__list {
-  padding-right: 12px;
   padding-left: 12px;
-  @media (min-width: $tablet) {
-    padding-left: 0;
+  padding-right: 12px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0;
   }
+
 }
+
 .modal__button:hover,
 .modal__button:focus {
   color: #fff;
@@ -118,12 +125,35 @@
 }
 
 .modal__image {
-  transform: translateX(-32.5%);
-  height: 100%;
-  max-width: none;
+
+  width: 233px;
+  height: 416px;
+  display: none;
+  /* background-size: cover; */
+  object-fit: cover;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+
+  @media screen and (min-width: $pc) {
+    width: 360px;
+    height: 641px;
+  }
+
 }
 
 .modal__image--little {
+  // display: block;
+  // // margin-bottom: 41px;
+  // margin-right: auto;
+  // margin-left: auto;
+  // margin-bottom: 18px;
+  // border-radius: 50%;
+  // width: 102px;
+  // height: 102px;
+  // // background-image: url('../images/demo.jpg');
+  // background-size: cover;
   display: inline-block;
   margin-right: auto;
   margin-bottom: 18px;
@@ -132,12 +162,14 @@
   height: 102px;
   object-fit: cover;
   border-radius: 50%;
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity .25s cubic-bezier(.4, 0, .2, 1);
+
   @media screen and (min-width: $tablet) {
     width: 70px;
     height: 70px;
     margin-bottom: 43px;
   }
+
   @media screen and (min-width: $pc) {
     width: 132px;
     height: 132px;
@@ -147,25 +179,19 @@
 .modal__image--big {
   display: block;
   display: none;
-  width: 360px;
-
+  // max-width: 60px;
+  // max-height: 100px;
   margin-right: auto;
   margin-left: auto;
   text-align: -webkit-center;
 
-  overflow: hidden;
-
   @media screen and (min-width: $tablet) {
     display: block;
-    width: 233px;
-    height: 416px;
   }
 
-  @media screen and (min-width: $pc) {
-    width: 360px;
-    height: 641px;
-  }
+  @media screen and (min-width: $pc) {}
 }
+
 .modal-content__container {
   flex-wrap: nowrap;
   text-align: center;
@@ -175,44 +201,42 @@
   margin-top: -60px;
   font-family: Montserrat;
   font-style: normal;
+
   @media screen and (min-width: $tablet) {
     margin: 0px;
     display: flex;
     margin-left: 0;
     justify-content: center;
     text-align: left;
+    // max-width: 595px;
+
   }
 }
+
 .modal-render_container {
   text-align: center;
+  padding: 62px 32px;
 }
+
 .modal-content__item {
   margin-left: 60px;
   margin-top: 60px;
+
   @media screen and (min-width: $tablet) {
     margin: 0;
-
-    &:not(:first-child) {
-      margin-left: 30px;
-    }
-    &:first-child {
-      margin-left: 50px;
-    }
+    flex-basis: calc(100% / 2);
   }
+
   @media screen and (min-width: $pc) {
     margin: 0;
-    &:first-child {
-      margin-left: 30px;
-    }
-    &:not(:first-child) {
-      margin-left: 60px;
-    }
+    flex-basis: calc(100% / 2);
   }
 }
 
 .modal-info__item:not(:last-child) {
   margin-bottom: 20px;
 }
+
 .modal-info__topic:not(:last-child) {
   margin-bottom: 7px;
   font-weight: 600;
@@ -227,58 +251,23 @@
   line-height: 1.2;
   color: #0e0e0e;
 }
+
 .info__text {
+
   height: 100px;
   overflow: scroll;
-  overflow-x: hidden;
   margin-bottom: 10px;
 }
+
 .price-tickets {
   margin-bottom: 10px;
 }
+
 .button-more {
   text-align: center;
 }
+
 .modal-btn_more {
-  display: inline-block;
-  border-radius: 5px;
-  border: 1px solid #4c00fe;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  cursor: pointer;
-  color: #4c00fe;
-  background: none;
-  padding: 10px 3px;
-
-  width: 230px;
-  height: 40px;
-
-  margin: 0 auto 0 20px;
-
-  @media screen and (min-width: $tablet) {
-    border: 1px solid #dc56c5;
-    width: 255px;
-    margin-left: 175px;
-    margin-right: auto;
-    margin-top: 43px;
-  }
-
-  @media screen and (min-width: $pc) {
-    margin-top: 45px;
-    margin-left: 337px;
-  }
-}
-
-.modal-btn_more:hover,
-.modal-btn_more:focus {
-  background-color: #4c00fe;
-  color: #fff;
-  border: 1px solid #dc56c5;
-}
-
-.modal-btn_tickets {
   display: inline-block;
   border-radius: 5px;
   border: 1px solid #4c00fe;
@@ -288,18 +277,50 @@
   font-size: 16px;
   line-height: 1.25;
   cursor: pointer;
-  color: #ffffff;
-  background: #4c00fe;
-  padding: 10px 19px;
+  color: #4c00fe;
+  background: none;
+  padding: 10px 3px;
+  // min-width: 255px;
+  // align-items: center;
   justify-content: center;
-  // margin: auto 0 auto 450px;
-  // margin-left: 550px;
-  margin-top: 20;
+  // margin-right: auto;
+
+  // transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (min-width: $tablet) {
+    padding: 16px 10px;
+    border: 1px solid #DC56C5;
+  }
+
+  @media screen and (min-width: $pc) {}
+}
+
+.modal-btn_more:hover,
+.modal-btn_more:focus {
+  background-color: #4c00fe;
+  color: #fff;
+  border: 1px solid #DC56C5;
+}
+
+.modal-btn_tickets {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #4C00FE;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  cursor: pointer;
+  color: #ffffff;
+  background: #4C00FE;
+  padding: 10px 19px;
+  margin-bottom: 25px;
+  justify-content: center;
 }
 
 .modal-btn_tickets:hover,
 .modal-btn_tickets:focus {
   background-color: #ffffff;
-  color: #4c00fe;
-  border: 1px solid #dc56c5;
+  color: #4C00FE;
+  border: 1px solid #DC56C5;
 }
